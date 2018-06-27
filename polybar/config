@@ -59,12 +59,12 @@ modules-left = i3
 modules-right = filesystem xbacklight volume wlan battery date
 
 tray-position = right
-tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
+; tray-padding = 2
+; tray-transparent = true
+; tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+#wm-restack = i3
 
 ;override-redirect = true
 
@@ -96,27 +96,19 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free%
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+strip-wsnumbers = true
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-foreground = ${colors.foreground-inverse}
 label-focused-background = ${colors.background-inverse}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-foreground = ${colors.foreground-faded}
 label-unfocused-background = ${colors.background-raised}
 label-unfocused-padding = ${self.label-focused-padding}
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
