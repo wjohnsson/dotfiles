@@ -276,6 +276,7 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id polybar bar
+exec --no-startup-id unclutter
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
