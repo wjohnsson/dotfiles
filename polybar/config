@@ -56,9 +56,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = SauceCodePro Nerd Font Mono:pixelsize=20;1
 
 modules-left = i3
-; add music some day?
-; modules-center = mpd
-modules-right = filesystem xbacklight volume memory cpu wlan battery temperature date powermenu
+modules-right = filesystem xbacklight volume wlan battery date
 
 tray-position = right
 tray-padding = 2
