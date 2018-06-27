@@ -409,7 +409,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Things I've added
-bindsym $mod+Shift+x exec --no-startup-id i3lock -i ~/pics/bg.png
+bindsym $mod+Shift+x exec --no-startup-id i3lock -i ~/pics/bg_2.png
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
