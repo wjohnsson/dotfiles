@@ -1,22 +1,36 @@
 " init.vim
-" vim-plug stuff
-" Plugins will be downloaded under the specified directory.
+
+" vim-plug plugin manager
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Declare the list of plugins.
-" Surround 
+" File system explorer
+Plug 'scrooloose/nerdtree'
+
+" Surround identifier with brackets etc.
 Plug 'tpope/vim-surround'
+
+" Allow for reapeating of certain plugin-commands
 Plug 'tpope/vim-repeat'
-Plug 'scrooloose/nerdtree' " , { 'on':  'NERDTreeToggle' }
+
+" Distraction free writing
 Plug 'junegunn/goyo.vim'
+
+" Static syntax and style checker for Python source code
 Plug 'nvie/vim-flake8'
+
+" Insert or delete brackets, parenthesis and quotes in pair
 Plug 'jiangmiao/auto-pairs'
+
+" Shows a git diff in the 'gutter' (sign column). 
 Plug 'airblade/vim-gitgutter'
-Plug 'xuhdev/vim-latex-live-preview'
+
 " Lively Previewing LaTeX PDF Output
 Plug 'xuhdev/vim-latex-live-preview'
-" Color colornames and codes
+
+" Highlight colornames and codes
 Plug 'chrisbra/Colorizer'
+
+" Better syntax highlighting for i3 config files
 Plug 'PotatoesMaster/i3-vim-syntax'
 
 call plug#end()
@@ -68,16 +82,13 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-" Flag unnecessary whitespace
-" https://realpython.com/vim-and-python-a-match-made-in-heaven/
-" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Remove the '[Scratch] [Preview]" window opened by YouCompleteMe (and
+" Remove the '[Scratch] [Preview]'-window opened by YouCompleteMe (and
 " possibly others?)
 set completeopt-=preview
 
 " PDF-viewer used by vim-latex-live-preview
 let g:livepreview_previewer = 'evince'
 
-" Update latex live preview faster
+" Don't update latex live preview as often
+" Instead update mostly on save
 set updatetime=20000
