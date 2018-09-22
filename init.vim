@@ -4,23 +4,36 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Declare the list of plugins.
+" Surround 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdtree' " , { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/goyo.vim'
-Plug 'Valloric/YouCompleteMe'
 Plug 'nvie/vim-flake8'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
+Plug 'xuhdev/vim-latex-live-preview'
+" Lively Previewing LaTeX PDF Output
+Plug 'xuhdev/vim-latex-live-preview'
+" Color colornames and codes
+Plug 'chrisbra/Colorizer'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 call plug#end()
 
+" Show command in bottom right corner as it is being typed
 set showcmd
+
+" Show line number
 set number
+
+" Show line number relative to cursor position
 set relativenumber
+
+" Don't highlight searches
 set nohlsearch
 
-" make it pretty
+" Make it pretty
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_italic = 1
@@ -62,3 +75,9 @@ au BufNewFile,BufRead *.py
 " Remove the '[Scratch] [Preview]" window opened by YouCompleteMe (and
 " possibly others?)
 set completeopt-=preview
+
+" PDF-viewer used by vim-latex-live-preview
+let g:livepreview_previewer = 'evince'
+
+" Update latex live preview faster
+set updatetime=20000

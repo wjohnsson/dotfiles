@@ -144,3 +144,13 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 # lines added by me
 export VISUAL="nvim"
 export EDITOR="nvim"
+
+# Allow for quicker navigation to dat290 repo
+shopt -s cdable_vars
+export d290=$HOME/prog/dat290-alarm
+export d290doc=$HOME/prog/dat290-alarm/docs
+
+eval $(thefuck --alias)
+
+# Allow for auto-completion with git
+source ~/.config/git-completion.bash

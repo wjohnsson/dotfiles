@@ -17,3 +17,6 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled
 
 # turn off annoying beep sounds
 xset -b
+
+# avoid using the ./ prefix each time a program is to be executed
+export PATH=.:$PATH
