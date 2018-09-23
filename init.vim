@@ -33,6 +33,11 @@ Plug 'chrisbra/Colorizer'
 " Better syntax highlighting for i3 config files
 Plug 'PotatoesMaster/i3-vim-syntax'
 
+" YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine 
+Plug 'Valloric/YouCompleteMe'
+
+Plug 'justinmk/vim-syntax-extra'
+
 call plug#end()
 
 " Show command in bottom right corner as it is being typed
@@ -92,3 +97,6 @@ let g:livepreview_previewer = 'evince'
 " Don't update latex live preview as often
 " Instead update mostly on save
 set updatetime=20000
+
+"Youcompleteme fix
+let g:ycm_global_ycm_extra_conf = '~/wilson/.local/share/nvim/plugged/YouCompleteMe'
