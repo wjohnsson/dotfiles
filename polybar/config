@@ -1,22 +1,15 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
+; ┌─┐┌─┐┬ ┬ ┬┌┐ ┌─┐┬─┐
+; ├─┘│ ││ └┬┘├┴┐├─┤├┬┘
+; ┴  └─┘┴─┘┴ └─┘┴ ┴┴└─
 
 [colors]
-;background = #222
+; Default colors
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 
-; copied from https://github.com/phaul/dotfiles/blob/master/.config/polybar/config
+; Colors copied from https://github.com/phaul/dotfiles/blob/master/.config/polybar/config
 foreground = ${xrdb:color8:#222}
 background = ${xrdb:color0:#222}
 
@@ -29,7 +22,15 @@ background-raised = ${xrdb:color0:#222}
 foreground-prefix = ${xrdb:color2:#222}
 
 warning = ${xrdb:color3:#222}
+
 active-led = ${xrdb:color1:#222}lert = #bd2c40
+
+; Colors I have defined
+white =    ${xrdb:color15:#222}
+black =    ${xrdb:color0:#222}
+darkblue = ${xrdb:color4:#222}
+darkred =  ${xrdb:color1:#222}
+darkgrey = ${xrdb:color8:#222}
 
 [bar/bar]
 monitor = ${env:MONITOR:eDP1}
@@ -45,34 +46,21 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Hack:pixelsize=14;1
+font-0 = SauceCodePro Nerd Font Mono:pixelsize=14;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = SauceCodePro Nerd Font Mono:pixelsize=20;1
 
 modules-left = i3
-modules-right = filesystem xbacklight volume wlan battery date
+modules-center = date
+modules-right = filesystem xbacklight pulseaudio wlan battery
 
 tray-position = right
-; tray-padding = 2
-; tray-transparent = true
-; tray-background = #0063ff
-
-;wm-restack = bspwm
-#wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -87,27 +75,27 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free%
+label-mounted = %{F#458588}%mountpoint%%{F-}: %free%
 ;label-unmounted = %mountpoint% not mounted
 ;label-unmounted-foreground = ${colors.foreground-alt}
 
-; copied from https://github.com/phaul/dotfiles/blob/master/.config/polybar/config
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
+index-sort = false
 strip-wsnumbers = true
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-foreground = ${colors.foreground-inverse}
-label-focused-background = ${colors.background-inverse}
+label-focused-foreground = ${colors.darkblue}
+label-focused-background = ${colors.black}
+label-focused-underline  = ${colors.darkblue}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-foreground = ${colors.foreground-faded}
-label-unfocused-background = ${colors.background-raised}
+label-unfocused-foreground = ${colors.darkgrey}
+label-unfocused-background = ${colors.black}
 label-unfocused-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -117,20 +105,9 @@ label-urgent-padding = ${self.label-focused-padding}
 
 [module/xbacklight]
 type = internal/xbacklight
-
-format = <label> <bar>
-label = 
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+format = %{F#458588}BL%{F-} <label>
+label = %percentage%%
+enable-scroll = false
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -142,65 +119,29 @@ type = internal/network
 interface = wlp4s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-; format-connected-underline = #9f78e1
+format-connected = %{F#458588}%{F-} <label-connected>
 label-connected = %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+format-disconnected = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
-interval = 5
-
+interval = 1
 date =
 date-alt = " %Y-%m-%d"
-
 time = %H:%M
-time-alt = %H:%M:%S
-
-# format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #0a6cf5
-
+time-alt = %H:%M
 label = %date% %time%
+format-foreground = ${colors.white}
 
-[module/volume]
-type = internal/volume
+[module/pulseaudio]
+type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = 
+format-volume = %{F#458588}VOL <label-volume>
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = 
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+label-muted = %{F#458588}VOL%{F-} 0%
 
 [module/battery]
 type = internal/battery
@@ -208,30 +149,25 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-; format-charging-underline = #ffb52a
-
 format-discharging = <ramp-capacity> <label-discharging>
-; format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-; format-full-underline = ${self.format-charging-underline}
-
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.darkblue}
 
+fmrmat-charging = <animation-charging> <label-charging>
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.darkblue}
 animation-charging-framerate = 750
+
+format-full = %{F#458588}%{F-} <label-full>
+label-full = %percentage%%
 
 [module/powermenu]
 type = custom/menu
