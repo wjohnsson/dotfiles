@@ -21,21 +21,19 @@ Plug 'nvie/vim-flake8'
 " Insert or delete brackets, parenthesis and quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
-" Shows a git diff in the 'gutter' (sign column). 
+" Shows a git diff in the 'gutter'. 
 Plug 'airblade/vim-gitgutter'
 
-" Lively Previewing LaTeX PDF Output
+" Live previewing LaTeX PDF Output.
 Plug 'xuhdev/vim-latex-live-preview'
 
-" Highlight colornames and codes
+" Highlight colornames and codes.
 Plug 'chrisbra/Colorizer'
 
 " Better syntax highlighting for i3 config files
 Plug 'PotatoesMaster/i3-vim-syntax'
 
-" YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine 
-Plug 'Valloric/YouCompleteMe'
-
+" Better syntax highlighting for C
 Plug 'justinmk/vim-syntax-extra'
 
 call plug#end()
@@ -64,17 +62,27 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Toggle NERDTree with Ctrl+n
+" Toggle NERDTree with Ctrl+n.
 map <C-n> :NERDTreeToggle<CR>
 
-" Toggle Goyo with Ctrl+g
+" Toggle Goyo with Ctrl+g.
 map <C-g> :Goyo<CR>
 
-" Write and then execute current file with F9
+" Write and then execute current file with F9.
 nnoremap <F9> :w<cr>:!python %<cr>
 
 " Set Vim to automatically save the current buffer when you hit Esc twice.
 map <Esc><Esc> :w<CR>
+
+
+" PDF-viewer used by vim-latex-live-preview.
+let g:livepreview_previewer = 'evince'
+
+" Don't update latex live preview as often. Instead update mostly on save.
+set updatetime=20000
+
+" Displays a horizontal line at column 80.
+set colorcolumn=80
 
 " Use PEP 8 indentation in python files
 " https://realpython.com/vim-and-python-a-match-made-in-heaven/
@@ -86,17 +94,3 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
-
-" Remove the '[Scratch] [Preview]'-window opened by YouCompleteMe (and
-" possibly others?)
-set completeopt-=preview
-
-" PDF-viewer used by vim-latex-live-preview
-let g:livepreview_previewer = 'evince'
-
-" Don't update latex live preview as often
-" Instead update mostly on save
-set updatetime=20000
-
-"Youcompleteme fix
-let g:ycm_global_ycm_extra_conf = '~/wilson/.local/share/nvim/plugged/YouCompleteMe'
