@@ -26,10 +26,10 @@ foreground-prefix = ${xrdb:color2:#222}
 warning = ${xrdb:color3:#222}
 
 ; Colors I have defined for simplicitys sake.
-white =    ${xrdb:color15:#222}
-black =    ${xrdb:color0:#222}
+white    = ${xrdb:color15:#222}
+black    = ${xrdb:color0:#222}
 darkblue = ${xrdb:color4:#222}
-darkred =  ${xrdb:color1:#222}
+darkred  = ${xrdb:color1:#222}
 darkgrey = ${xrdb:color8:#222}
 
 [bar/bar]
@@ -58,7 +58,7 @@ font-2 = Hack Nerd Font Mono:pixelsize=20;1
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem xbacklight pulseaudio wlan battery
+modules-right = filesystem xbacklight pulseaudio wlan battery-combined-udev
 
 tray-position = right
 
@@ -143,31 +143,37 @@ label-volume-foreground = ${root.foreground}
 
 label-muted = %{F#458588}VOL%{F-} 0%
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 98
 
-format-discharging = <ramp-capacity> <label-discharging>
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.darkblue}
+[module/battery-combined-udev]
+type = custom/script
+exec = ~/.config/polybar/battery-combined-udev.sh
+tail = true
 
-fmrmat-charging = <animation-charging> <label-charging>
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.darkblue}
-animation-charging-framerate = 750
+; [module/battery]
+; type = internal/battery
+; battery = BAT0
+; adapter = AC
+; full-at = 98
 
-format-full = %{F#458588}%{F-} <label-full>
-label-full = %percentage%%
+; format-discharging = <ramp-capacity> <label-discharging>
+; ramp-capacity-0 = 
+; ramp-capacity-1 = 
+; ramp-capacity-2 = 
+; ramp-capacity-3 = 
+; ramp-capacity-4 = 
+; ramp-capacity-foreground = ${colors.darkblue}
+;
+; fmrmat-charging = <animation-charging> <label-charging>
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; animation-charging-3 = 
+; animation-charging-4 = 
+; animation-charging-foreground = ${colors.darkblue}
+; animation-charging-framerate = 750
+;
+; format-full = %{F#458588}%{F-} <label-full>
+; label-full = %percentage%%
 
 [module/powermenu]
 type = custom/menu

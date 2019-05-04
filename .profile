@@ -20,3 +20,6 @@ xset -b
 
 # avoid using the ./ prefix each time a program is to be executed
 export PATH=.:$PATH
+
+# For using GNU Global with gtags in emacs
+export GTAGSLABEL=pygments

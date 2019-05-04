@@ -154,3 +154,6 @@ eval $(thefuck --alias)
 
 # Allow for auto-completion with git
 source ~/.config/git-completion.bash
+
+# Dont scale qbittorrent
+export QT_AUTO_SCREEN_SCALE_FACTOR=0

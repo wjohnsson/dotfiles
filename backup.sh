@@ -7,3 +7,4 @@ cp ~/.profile .
 cp ~/.Xresources .
 cp ~/.config/nvim/init.vim .
 cp ~/.config/polybar/config ./polybar/
+cp ~/.config/termite/config ./termite/
