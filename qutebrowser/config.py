@@ -8,7 +8,7 @@
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
-c.auto_save.session = True
+c.auto_save.session = False
 
 # Enable JavaScript.
 # Type: Bool
@@ -34,7 +34,7 @@ c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://www.google.com/search?q={}'
+c.url.default_page = 'https://www.google.com'
 
 # Search engines which can be used via the address bar. Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`

@@ -3,5 +3,5 @@
 
 config_version: 2
 settings:
-  url.default_page:
-    global: https://www.google.com/
+  scrolling.smooth:
+    global: true

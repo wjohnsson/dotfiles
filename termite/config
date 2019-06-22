@@ -5,8 +5,7 @@ clickable_url = true
 dynamic_title = true
 
 # Some font options
-# font = Sauce Code Pro Nerd Font Complete Mono 12
-font = Iosevka Nerd Font Mono 12
+# font = Iosevka Nerd Font Mono 12
 font = Hack Nerd Font Mono 12
 
 #fullscreen = true
@@ -26,7 +25,7 @@ scrollback_lines = 10000
 #browser = xdg-open
 
 # "system", "on" or "off"
-#cursor_blink = system
+cursor_blink = off
 
 # "block", "underline" or "ibeam"
 #cursor_shape = block
@@ -46,7 +45,7 @@ scrollback_lines = 10000
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
 # and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
+cursor = #fabd2f
 #cursor_foreground = #dcdccc
 
 #foreground = #dcdccc
