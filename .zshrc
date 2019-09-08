@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:~/down/tsim/world/bin
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/wilson/.oh-my-zsh"
+export ZSH="/home/wilson/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -26,8 +26,14 @@ ZSH_THEME="wilson"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -62,9 +68,7 @@ ZSH_THEME="wilson"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,19 +89,51 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias zshconfig="nvim ~/.zshrc"
-alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
 alias i3config="nvim ~/.config/i3/config"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias heroes3="cd /home/wilson/.wine/drive_c/GOG\ Games/HoMM\ 3\ Complete/ && wine HD_Launcher.exe"
 
-# Set swedish keyboard layout
-setxkbmap se
+# vim mode config
+# ---------------
+
+# Activate vim mode.
+bindkey -v
+
+# Remove mode switching delay.
+KEYTIMEOUT=5
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]] ||
+           [[ $1 = 'block' ]]; then
+        echo -ne '\e[1 q'
+
+    elif [[ ${KEYMAP} == main ]] ||
+             [[ ${KEYMAP} == viins ]] ||
+             [[ ${KEYMAP} = '' ]] ||
+             [[ $1 = 'beam' ]]; then
+        echo -ne '\e[5 q'
+    fi
+}
+zle -N zle-keymap-select
+
+# Use beam shape cursor on startup.
+echo -ne '\e[5 q'
+
+# Use beam shape cursor for each new prompt.
+preexec() {
+    echo -ne '\e[5 q'
+}
+
+# Set nvim to default text editor
+export VISUAL="nvim"
+export EDITOR="nvim"
