@@ -1,0 +1,18 @@
+# zathurarc
+
+set font "Hack 11"
+
+# Use ~ instead of $HOME in the filename window title
+# set window-title-home-tilde true
+
+# Use basename of the file in the window title
+set window-title-basename true
+
+# Statusbar and vertical scrollbar
+set guioptions "sv"
+
+# Gruvbox colors
+set default-bg "#282828"
+set default-fg "#ebdbb2"
+set statusbar-bg "#83a598"
+set statusbar-fg "#282828"
