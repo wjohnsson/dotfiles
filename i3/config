@@ -85,7 +85,7 @@ bindsym $mod+q split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -158,12 +158,14 @@ for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Pavucontrol"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
 
-# For TDA384 (Principles of Concurrent Programming) lab 1 (Trainspotting)
+# For TDA384 (Principles of Concurrent Programming) 
+# Lab 1 (Trainspotting)
 for_window [instance="tsim"] floating enable move right 1500px,move down 600px
 for_window [instance="tools"] floating enable move right 0px,move up 175px
-
-# For TDA384 (Principles of Concurrent Programming) lab 2 (CCHAT)
+# Lab 2 (CCHAT)
 for_window [title="CCHAT"] floating enable
+# Lab 3 (Amazed)
+for_window [title="A-mazed"] floating enable
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
