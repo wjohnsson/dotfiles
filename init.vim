@@ -36,6 +36,9 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 " Better syntax highlighting for C
 Plug 'justinmk/vim-syntax-extra'
 
+" Best color scheme <3
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " Show command in bottom right corner as it is being typed
