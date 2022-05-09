@@ -155,5 +155,17 @@ eval $(thefuck --alias)
 # Allow for auto-completion with git
 source ~/.config/git-completion.bash
 
-# Dont scale qbittorrent
+# Don't scale qbittorrent
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
+
+# Longer bash history
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+# Prevent some commands from showing up in history
+export HISTIGNORE="ls:ps:history *:clear:pwd:jps:git status"
+# Include timestamps in history
+export HISTTIMEFORMAT="%F %T "
+
+# See everything quickly
+alias ll='ls -lah --color=auto'
