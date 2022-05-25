@@ -61,6 +61,45 @@ modules-center = date
 modules-right = filesystem xbacklight pulseaudio wlan battery-combined-udev
 
 tray-position = right
+; wm-restack = i3
+; override-redirect = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+border-top-size = 5
+
+[bar/hdmibar]
+monitor = ${env:MONITOR:HDMI2}
+width = 100%
+height = 45
+radius = 0
+fixed-center = true
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Hack Nerd Font Mono:pixelsize=14;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = Hack Nerd Font Mono:pixelsize=20;1
+
+modules-left = i3
+modules-center = date
+modules-right = filesystem xbacklight pulseaudio wlan battery-combined-udev
+
+tray-position = right
+; wm-restack = i3
+; override-redirect = true
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -148,32 +187,6 @@ label-muted = %{F#458588}VOL%{F-} 0%
 type = custom/script
 exec = ~/.config/polybar/battery-combined-udev.sh
 tail = true
-
-; [module/battery]
-; type = internal/battery
-; battery = BAT0
-; adapter = AC
-; full-at = 98
-
-; format-discharging = <ramp-capacity> <label-discharging>
-; ramp-capacity-0 = 
-; ramp-capacity-1 = 
-; ramp-capacity-2 = 
-; ramp-capacity-3 = 
-; ramp-capacity-4 = 
-; ramp-capacity-foreground = ${colors.darkblue}
-;
-; fmrmat-charging = <animation-charging> <label-charging>
-; animation-charging-0 = 
-; animation-charging-1 = 
-; animation-charging-2 = 
-; animation-charging-3 = 
-; animation-charging-4 = 
-; animation-charging-foreground = ${colors.darkblue}
-; animation-charging-framerate = 750
-;
-; format-full = %{F#458588}%{F-} <label-full>
-; label-full = %percentage%%
 
 [module/powermenu]
 type = custom/menu
