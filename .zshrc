@@ -137,3 +137,6 @@ preexec() {
 # Set nvim to default text editor
 export VISUAL="nvim"
 export EDITOR="nvim"
+
+# CTRL+R for backwards search in command history
+bindkey '^R' history-incremental-search-backward
