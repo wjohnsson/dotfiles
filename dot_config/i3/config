@@ -9,15 +9,15 @@
 #############
 
 # Autostart applications when launcing i3
-exec --no-startup-id "polybar bar"
+exec --no-startup-id "polybar bar --reload"
 exec --no-startup-id "setxkbmap se"
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id "compton -b"
 # turn off beep sounds
 exec --no-startup-id "xset b off && xset b 0 0 0"
 exec_always --no-startup-id "dunst"
 exec --no-startup-id "nm-applet"
+exec "unclutter"
 
 # Start programs with hotkeys
 bindsym $mod+d exec --no-startup-id "rofi -show run -theme gruvbox-dark"
@@ -43,7 +43,7 @@ font xft:Hack:size=11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,6 +166,17 @@ for_window [instance="tools"] floating enable move right 0px,move up 175px
 for_window [title="CCHAT"] floating enable
 # Lab 3 (Amazed)
 for_window [title="A-mazed"] floating enable
+
+# For TDA297 labs (Advanced Distributed Systems labs)
+for_window [title="^MC - 0$"] floating enable
+for_window [title="^MC - 1$"] floating enable move right 1500px
+for_window [title="^MC - 2$"] floating enable move right 700px
+
+# Show title bars for these windows
+for_window [title="^MC - 0$"]  border normal
+for_window [title="^MC - 1$"]  border normal
+for_window [title="^MC - 2$"]  border normal
+
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad

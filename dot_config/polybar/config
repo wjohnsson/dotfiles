@@ -188,6 +188,32 @@ type = custom/script
 exec = ~/.config/polybar/battery-combined-udev.sh
 tail = true
 
+; [module/battery]
+; type = internal/battery
+; battery = BAT0
+; adapter = AC
+; full-at = 98
+
+; format-discharging = <ramp-capacity> <label-discharging>
+; ramp-capacity-0 = 
+; ramp-capacity-1 = 
+; ramp-capacity-2 = 
+; ramp-capacity-3 = 
+
+; ramp-capacity-foreground = ${colors.darkblue}
+;
+; fmrmat-charging = <animation-charging> <label-charging>
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; animation-charging-3 = 
+; animation-charging-4 = 
+; animation-charging-foreground = ${colors.darkblue}
+; animation-charging-framerate = 750
+;
+; format-full = %{F#458588}%{F-} <label-full>
+; label-full = %percentage%%
+
 [module/powermenu]
 type = custom/menu
 

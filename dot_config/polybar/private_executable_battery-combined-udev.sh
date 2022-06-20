@@ -72,6 +72,7 @@ battery_print() {
 }
 
 path_pid="/home/user/.config/polybar/battery-combined-udev.pid"
+update_time=15
 
 # Update loop
 case "$1" in
@@ -91,7 +92,7 @@ case "$1" in
         while true; do
             battery_print
 
-            sleep 30 &
+            sleep $update_time &
             wait
         done
         ;;
