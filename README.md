@@ -15,7 +15,7 @@ Preview from 2022-06-20
 
 ## Some tools I use
 - terminal emulator: **alacritty**
-- text editor: **spacemacs/nvim**
+- text editor: **neovim/spacemacs**
 - file manager: **ranger**
 - web browser: **firefox**
 - application launcher: **rofi**
